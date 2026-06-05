@@ -1,2 +1,0 @@
-[console_scripts]
-gemma-ocr = ocr_gemma.cli:main
