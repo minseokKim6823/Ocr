@@ -1,0 +1,46 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ocr-gemma"
+version = "0.1.0"
+description = "Vision-language OCR powered by Gemma 4, supporting Ollama (CPU) and HuggingFace Transformers (GPU) backends."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+
+# Base / CPU dependencies (Ollama path)
+dependencies = [
+    "pillow>=10.0",
+    "requests>=2.31",
+    "ollama>=0.3",
+    "numpy>=1.26",
+    "pymupdf>=1.24",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+# HuggingFace Transformers GPU stack
+# Install CUDA torch separately first:
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+gpu = [
+    "torch>=2.4",
+    "transformers>=4.50",
+    "accelerate>=0.34",
+    "sentencepiece>=0.2",
+]
+
+# Optional high-throughput batch backend (Linux + CUDA only)
+vllm = [
+    "vllm>=0.6",
+]
+
+[project.scripts]
+gemma-ocr = "ocr_gemma.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ocr_gemma*"]
+
+[tool.setuptools.package-data]
+"ocr_gemma" = ["py.typed"]

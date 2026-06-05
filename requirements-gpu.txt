@@ -1,0 +1,50 @@
+# ==============================================================================
+# requirements-gpu.txt — GPU / HuggingFace Transformers backend path
+# ==============================================================================
+# This file covers the full GPU stack for running Gemma 4 with HuggingFace
+# Transformers (bf16) and optional vLLM for high-throughput batch inference.
+#
+# STEP 1 — Install CUDA-enabled PyTorch FIRST (before this file):
+#   pip install torch --index-url https://download.pytorch.org/whl/cu124
+#   (Replace cu124 with your CUDA version, e.g. cu118, cu121, cu126)
+#
+# STEP 2 — Install this file:
+#   pip install -r requirements-gpu.txt
+#
+# The model weights are downloaded from HuggingFace Hub on first use.
+# Recommended: google/gemma-4-e4b-it  (set OCR_MODEL in .env)
+# ==============================================================================
+
+# Core deep-learning framework (CUDA build must be installed separately — see above)
+torch>=2.4,<3.0
+
+# HuggingFace model loading and inference
+transformers>=4.50,<5.0
+
+# Multi-GPU / device-map / quantization support
+accelerate>=0.34,<2.0
+
+# Required tokenizer piece model for Gemma
+sentencepiece>=0.2,<1.0
+
+# Image handling
+pillow>=10.0,<12.0
+
+# Numerical utilities
+numpy>=1.26,<3.0
+
+# PDF rendering — pure-pip, no system Poppler required (Windows-friendly)
+pymupdf>=1.24,<2.0
+
+# Progress bars for batch processing
+tqdm>=4.66,<5.0
+
+# ------------------------------------------------------------------------------
+# Optional — high-throughput batch backend (Linux + CUDA only):
+#   vllm>=0.6
+#
+# vLLM is NOT installed by default.  It is Linux-focused and requires a
+# compatible CUDA environment.  To enable:
+#   pip install -e .[vllm]
+#   or: pip install vllm>=0.6
+# ------------------------------------------------------------------------------
