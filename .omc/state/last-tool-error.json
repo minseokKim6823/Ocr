@@ -1,0 +1,7 @@
+{
+  "tool_name": "PowerShell",
+  "tool_input_preview": "{\"command\":\"$env:PYTHONIOENCODING='utf-8'\\nWrite-Output \\\"===== 기본 (박스+저장 포함) =====\\\"\\n& \\\".venv\\\\Scripts\\\\python.exe\\\" vis_fields.py 2>$null\\nWrite-Output \\\"\\\"\\nWrite-Output \\\"===== --no-save (값만) ==...",
+  "error": "Exit code 1\n===== 기본 (박스+저장 포함) =====\r\n[설정] 6장 / 라벨=['종목코드', '종목명']\r\n\r\n[1/6] IRN1.jpg  (OCR 3.07s +저장 0.01s): 종목코드='KR6ZW0001VN6'  종목명='한화스마트7486(ELS)'\r\n[2/6] IRN2.jpg  (OCR 2.61s +저장 0.01s): 종목코드='KR6475941E13'  종목명='디비닉스제사십일차1(사모/콜)'\r\n[3/6] IRN3.jpg  (OCR 2.32s +저장 0.01s): 종목코드='KR6KB0001YG0'  종목명='KB증권7533(ELS)'\r\n[4/6] IRN4.jpg  (OCR 2.54s +저장 0.01s): 종목코드='KR6KS0004W15'  종목명='한국투자증권9013(사모/ELS)'\r\n[5/6] IRN5.jpg  (OCR 2.48s +저장 0.01s): 종목코드='KR6KS0004VY7'  종목명='한국투자증권9010(사모/ELS)'\r\n[6/6] IRN6...",
+  "timestamp": "2026-06-05T01:05:26.874Z",
+  "retry_count": 1
+}
